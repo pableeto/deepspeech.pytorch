@@ -200,6 +200,7 @@ class DeepSpeech(nn.Module):
         if not self.bidirectional:  # no need for lookahead layer in bidirectional
             x = self.lookahead(x)
 
+        print(x.shape)
         x = self.fc(x)
         x = x.transpose(0, 1)
         # identity in training mode, softmax in eval mode
